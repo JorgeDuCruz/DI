@@ -30,6 +30,8 @@ print(l[::-1]) # puedes hacer que la direccion del salto sea al reves
 
 #Tuplas son listas pero no se pueden modificar
 
-l = (2,5,2+4j,"un texto",(22,3,5,6),3,9)
+l = (2,5,2+4j,"un texto",[22,3,5,6],3,9)
 print(l)
 print(l[2])
+l[-3][2] = 4 # se puede modificar una lista si esta en una tupla siempre que solo se modifique la lista y no la tupla
+print(l)
