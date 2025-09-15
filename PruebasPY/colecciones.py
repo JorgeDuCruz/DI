@@ -30,7 +30,14 @@ print(l[::-1]) # puedes hacer que la direccion del salto sea al reves
 
 #Tuplas son listas pero no se pueden modificar
 
-l = (2,5,2+4j,"un texto",[22,3,5,6],3,9)
+l = (2,5,2+4j,"un texto",[22,3,5,6],3,9) # el parentesis es solo visual la tupla existe con las comas directamente los parentesis pueden no aparecer
+t = 2,5,2+4j,"un texto",[22,3,5,6],3,9  #Ejemplo de tupla sin parentesis
+t2 = 2,5,2+4j,"un texto",(22,3,5,6),3,9 #Ejemplo de necesidad de parentesis en dupla
+t3 = 5, # ejemplo de tupla de un solo valor
+t4 =None,54 # ejemplo de añadir un elemento vacio, no sirve para casi nada porque lo que este vacio casi siempre se puede omitir
+print(t4)
+print(t3)
+print(t)
 print(l)
 print(l[2])
 l[-3][2] = 4 # se puede modificar una lista si esta en una tupla siempre que solo se modifique la lista y no la tupla
