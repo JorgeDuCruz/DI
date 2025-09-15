@@ -27,3 +27,9 @@ print(l[:5])
 print(l[2:])
 print(l[1:6:3]) # el ultimo numero es cada cuantos saltos pilla en este caso pilla un valor cada 3
 print(l[::-1]) # puedes hacer que la direccion del salto sea al reves
+
+#Tuplas son listas pero no se pueden modificar
+
+l = (2,5,2+4j,"un texto",(22,3,5,6),3,9)
+print(l)
+print(l[2])
