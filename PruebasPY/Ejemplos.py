@@ -27,3 +27,16 @@ while True:
     print(n1)
     if n1>10:
         break # Esta configuracion(Con el if) seria el equivalente al do while
+
+#Bucle for
+suma=0
+numeros = [1,2,5,4,846,654,654,3,12]
+for numero in numeros: # recorres cada elemento de una lista con un nombre especifico
+    print(numero)
+    suma += numero
+print(suma)
+
+dicconario = {"A":23,"B":25}
+for dic in dicconario:
+    print(dic)
+    print(dicconario[dic])
