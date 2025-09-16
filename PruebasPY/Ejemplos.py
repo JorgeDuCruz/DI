@@ -20,3 +20,10 @@ print(vehiculoTipo)
 while n1<=10:
     print(n1)
     n1+=1
+
+
+# do-wile no existe como tal en python
+while True:
+    print(n1)
+    if n1>10:
+        break # Esta configuracion(Con el if) seria el equivalente al do while
