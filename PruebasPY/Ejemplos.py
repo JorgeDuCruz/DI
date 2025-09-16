@@ -40,3 +40,7 @@ dicconario = {"A":23,"B":25}
 for dic in dicconario:
     print(dic)
     print(dicconario[dic])
+
+
+for indice in range(0,numeros.index(numeros[-1])): # bucle for lo mas parecido a java posible con indice
+    print(numeros[indice],indice)
