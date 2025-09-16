@@ -42,3 +42,15 @@ print(l)
 print(l[2])
 l[-3][2] = 4 # se puede modificar una lista si esta en una tupla siempre que solo se modifique la lista y no la tupla
 print(l)
+
+
+#Diccionarios estructura de datos donde se trabaja de forma clave:valor
+
+d = {1:"Pepe",
+     "pepe":"Antonio",
+     3:["Jose"," Luis"]
+}#parecido a los objetos de JavaScript
+print(d[3])
+d[3] = "jose Luis" # se puede modificar un valor sabiendo su clave
+print(d[3])
+print(d["pepe"]) #Las claves pueden ser numeros, string,etc pero no con letras o palabras sueltas
