@@ -9,3 +9,7 @@ elif(n1==3):
 else: # Prueba
  print(n1)
  print(n1)
+
+#VehiculoTipo = (n1>3) ? "Moto":"Coche" --> Esto es Java
+vehiculoTipo = "Coche" if (n1>3) else "Moto" # -> equivalente en Python al operador ternario
+print(vehiculoTipo)
