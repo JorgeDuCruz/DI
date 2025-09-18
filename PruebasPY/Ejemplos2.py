@@ -45,3 +45,24 @@ l = ["pepe"]
 print(l)
 cambiarLista(l)
 print(l)
+
+#Funcion con return
+def suma(listaSumar): # Es literal Java pero sin especificar que valor vas a devolver
+    suma = 0
+    for numero in listaSumar:
+        suma += numero
+    return suma
+
+print(suma([5,48,2.5]))
+
+def sumaMedia(listaSumar):
+    suma = 0
+    for numero in listaSumar:
+        suma += numero
+    return suma, suma/len(listaSumar) #retorna los dos valores, se envia como tupla o como dos valores distinto
+
+a,s = sumaMedia([10,5,7.5]) # cada variable recibe uno de los resultado que retonra la funcion
+_,m = sumaMedia([1,2,3]) # ignora el valor en la posicion del _ y solo aigna los valores que coincidan con una variable
+tupla = sumaMedia([5,2.5,7.5]) # la variable se convierte en una tupla con los dos valores que retonra la funcion
+print(tupla)
+print(a,s)
