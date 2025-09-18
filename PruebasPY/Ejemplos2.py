@@ -11,6 +11,7 @@ def nome_da_funcion(parametro1, parametro2):
 nome_da_funcion("José Luís","Baja de ahí")
 
 nome_da_funcion(parametro2="Baja de ahí",parametro1="José Luis")
+nome_da_funcion("PRUEBA numeros",564)
 
 def repetir_mensaxe(mensaxe,veces = 5):
     print(mensaxe*veces)
@@ -24,3 +25,4 @@ def repetir_mensaxes (mensaxe,veces = 5,*maisMensaxes): # El * simboliza que el 
         print(outroMensaxe)
 
 repetir_mensaxes("Ola",2,"Caracola","Reporte del dia","Probar a hacer un bucle que mande un chingo de parametros") # Realmente el parametro indefinido es simplemente que puedes pasar una tupla
+repetir_mensaxes("ola") # si no le pasas la tupla entonces estara vacia, lo que suele significar que no deberia estallar en casos normales
