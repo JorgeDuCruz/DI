@@ -28,7 +28,7 @@ while True:
     if n1>10:
         break # Esta configuracion(Con el if) seria el equivalente al do while
 
-#Bucle for
+#Bucle for-in
 suma=0
 numeros = [1,2,5,4,846,654,654,3,12]
 for numero in numeros: # recorres cada elemento de una lista con un nombre especifico
@@ -44,3 +44,6 @@ for dic in dicconario:
 
 for indice in range(0,numeros.index(numeros[-1])): # bucle for lo mas parecido a java posible con indice
     print(numeros[indice],indice)
+
+for indice in range(3,10,3): #Indice tendra los siguientes valores = 3,6,9. saltos de 3 en 3, empezando en 3 y sin superar a 10
+    print(indice)
