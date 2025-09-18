@@ -33,4 +33,4 @@ def persoa (nome,dni,**maisDatos):
     for dato in maisDatos.keys():
         print(dato,"é",maisDatos[dato])
 
-persoa("Alfred","5438464G",fecha_nacimiento="15/4/1990",localidade="Vigo",estado="Civil")
+persoa("Alfred","5438464G",fecha_nacimiento="15/4/1990",localidade="Vigo",estado="Civil") # Para mandar los valores del diccionario tratalos como si fueran parameros donde debes especificar su nombre
