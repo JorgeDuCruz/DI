@@ -28,3 +28,9 @@ def repetir_mensaxes (mensaxe,veces = 5,*maisMensaxes): # El * simboliza que el 
 repetir_mensaxes("Ola",2,"Caracola",5,"Probar a hacer un bucle que mande un chingo de parametros") # Realmente el parametro indefinido es simplemente que puedes pasar una tupla
 repetir_mensaxes(5) # si no le pasas la tupla entonces estara vacia, lo que suele significar que no deberia estallar en casos normales
 
+def persoa (nome,dni,**maisDatos):
+    print(nome,dni)
+    for dato in maisDatos.keys():
+        print(dato,"é",maisDatos[dato])
+
+persoa("Alfred","5438464G",fecha_nacimiento="15/4/1990",localidade="Vigo",estado="Civil")
