@@ -34,3 +34,14 @@ def persoa (nome,dni,**maisDatos):
         print(dato,"é",maisDatos[dato])
 
 persoa("Alfred","5438464G",fecha_nacimiento="15/4/1990",localidade="Vigo",estado="Civil") # Para mandar los valores del diccionario tratalos como si fueran parameros donde debes especificar su nombre
+
+
+def cambiarLista(lista):
+    l = ["pepe"]
+    print(l)
+    lista[0] = l
+
+l = ["pepe"]
+print(l)
+cambiarLista(l)
+print(l)
