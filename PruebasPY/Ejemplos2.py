@@ -37,9 +37,9 @@ persoa("Alfred","5438464G",fecha_nacimiento="15/4/1990",localidade="Vigo",estado
 
 
 def cambiarLista(lista):
-    l = ["pepe"]
+    l = ["Jose"] # este l que se crea aqui es un l distinto del que hay fuera de la funcion y por ende no modifica a la lista original l
     print(l)
-    lista[0] = l
+    lista[0] = l # Aqui la variable lista es equivalente a la variable l de fuera de la funcion y por ende si modifica a la lista original l
 
 l = ["pepe"]
 print(l)
