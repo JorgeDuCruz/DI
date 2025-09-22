@@ -1,3 +1,6 @@
+from pkgutil import resolve_name
+
+
 def tempoASegundos (hora,min,seg):
     segH = hora*3600
     segMin= min*60
@@ -16,4 +19,4 @@ def segundosAtempo(segundos):
 
     return hora,minutos,segundosRes
 
-print(segundosAtempo(25319))
+print(segundosAtempo(20000000000000000000000000000000000))
