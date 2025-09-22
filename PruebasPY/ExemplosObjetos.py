@@ -11,6 +11,13 @@ class Persona:
         else:
             return 0
 
+class Trabajador (Persona):
+    def __init__(self,nome,dni,edade,NUSS,salario,foramcion):
+        super().__init__(nome,dni,edade)
+        self.NUSS = NUSS
+        self.salario = salario
+        self.formacion = foramcion
+
 p = Persona("Manuel","3651D",36)
 
 print(p.edade)
