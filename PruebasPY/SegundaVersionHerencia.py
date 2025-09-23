@@ -1,3 +1,5 @@
+#Inutilidad
+
 class Persona:
     """Clase para definir una persona"""
     def __init__(self,nome,dni,edade,**outros): #Outros con ** para recibir mas datos de los que necesita
