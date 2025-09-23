@@ -7,7 +7,7 @@ class Persona:
 
     def comprobarEdade(self,edade):
         if (edade>=0) and edade <100:
-            return id
+            return edade
         else:
             return 0
 
