@@ -41,3 +41,4 @@ class Persona:
 p3 = Persona("jorge",546,15)
 p3.edade = 101
 print(p3.edade)
+print(p3._Persona__dni) #Esto te permite saltarte la privacidad de las variables
