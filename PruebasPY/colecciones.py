@@ -79,3 +79,5 @@ print(l2.pop(3)) # Devuelve el valor en la posicion indicada y luego lo elimina 
 print(l2)
 l2.remove(2) # elimina la primera coincidencia del valor indicado
 print(l2)
+l2.reverse() # le da la vuelta a la lista
+print(l2)
