@@ -77,3 +77,5 @@ print(l2)
 print(l2.index(1,3,7)) # devuelve el indice del valor que busque(primera coincidencia), 2º parametro es la posicion a partir de la que busca y el 3º parametro es hasta que posicion busca
 print(l2.pop(3)) # Devuelve el valor en la posicion indicada y luego lo elimina de la lista
 print(l2)
+l2.remove(2) # elimina la primera coincidencia del valor indicado
+print(l2)
