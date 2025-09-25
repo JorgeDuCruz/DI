@@ -54,3 +54,12 @@ print(d[3])
 d[3] = "jose Luis" # se puede modificar un valor sabiendo su clave
 print(d[3])
 print(d["pepe"]) #Las claves pueden ser numeros, string,etc pero no con letras o palabras sueltas
+
+
+l2 = [1,2,3]
+l3 = list((1,2,3,4))
+
+t5 = (1,2,3)
+t6 = tuple(l2)
+
+d2 = {1:"1",2:"11",3:"111"}
