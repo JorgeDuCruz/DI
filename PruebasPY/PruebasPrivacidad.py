@@ -38,7 +38,11 @@ class Persona:
     dni = property(getDni,setDni)
     edade = property(getEdade,setEdade)
 
+    def __eq__(self, other):
+        return self.__dni == other.__dni
 
+    def __ne__(self, other):
+        return self.__dni != other.__dni
 
 p3 = Persona("jorge",546,15)
 p3.edade = 101
@@ -46,3 +50,8 @@ p3.respuesta = "cago en todo" #Puedes añadirle propiedades a una clase porque p
 print(p3)
 print(p3.edade)
 print(p3._Persona__dni) #Esto te permite saltarte la privacidad de las variables
+
+p2 = Persona("none",547,25)
+p4 = Persona("jorge",546,15)
+print(p3.__ne__(p2))
+print(p3.__eq__(p4))
