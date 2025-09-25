@@ -64,3 +64,8 @@ t6 = tuple(l2)
 
 d2 = {1:"1",2:"11",3:"111"}
 d3 = dict()
+
+
+l2.append([3,2,1,0]) #Añade el objeto tal cual (Solo añade un valor por uso)
+l2.extend([3,2,1]) # añade los objetos de la coleccion (para añadir varios valores a la vez)
+print(l2)
