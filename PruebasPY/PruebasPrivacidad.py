@@ -38,6 +38,9 @@ class Persona:
     dni = property(getDni,setDni)
     edade = property(getEdade,setEdade)
 
+    def __len__(self):
+        return len(vars(self)) # Devuelve cuantas variables diferentes guarda el objeto
+
     def __eq__(self, other):
         return self.__dni == other.__dni
 
@@ -54,4 +57,6 @@ print(p3._Persona__dni) #Esto te permite saltarte la privacidad de las variables
 p2 = Persona("none",547,25)
 p4 = Persona("jorge",546,15)
 print(p3.__ne__(p2))
-print(p3.__eq__(p4))
+print(p3==(p4)) # Puedes usar __eq__ si lo implementas en la clase
+print(p3.__len__())
+print(p2.__len__())
