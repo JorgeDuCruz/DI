@@ -32,6 +32,8 @@ class Persona:
     def getDni(self):
         return self.__dni
 
+    def __str__(self):
+        return "Mango con huevo para: "+self.nome
     nome = property(getNome,setNome)
     dni = property(getDni,setDni)
     edade = property(getEdade,setEdade)
@@ -40,5 +42,7 @@ class Persona:
 
 p3 = Persona("jorge",546,15)
 p3.edade = 101
+p3.respuesta = "cago en todo" #Puedes añadirle propiedades a una clase porque patata
+print(p3)
 print(p3.edade)
 print(p3._Persona__dni) #Esto te permite saltarte la privacidad de las variables
