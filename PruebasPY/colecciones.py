@@ -6,6 +6,7 @@ Diccionarios
 
 
 """
+from time import process_time_ns
 
 #Listas
 
@@ -69,3 +70,8 @@ d3 = dict()
 l2.append([3,2,1,0]) #Añade el objeto tal cual (Solo añade un valor por uso)
 l2.extend([3,2,1]) # añade los objetos de la coleccion (para añadir varios valores a la vez)
 print(l2)
+
+l2.insert(7,"prueba") # Añade un valor en la posicion indicad (el -1 no lo insertara como ultimo valor sino como penultimo)
+print(l2.count(2))
+print(l2)
+print(l2.index(1,3,7)) # devuelve el indice del valor que busque(primera coincidencia), 2º parametro es la posicion a partir de la que busca y el 3º parametro es hasta que posicion busca
