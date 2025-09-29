@@ -141,3 +141,9 @@ for s in m:
           if n<4:
                z.append(n*s)
 print(z)
+
+z2 = [n*s for s in m
+      for n in pruebaLis
+      if n<4]
+#Se puede poner en una linea pero se entiende un poco peor[n*s for s in m for n in pruebaLis if n<4]
+print(z2)
