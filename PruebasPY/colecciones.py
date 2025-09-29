@@ -166,3 +166,17 @@ l5 = [n for n in x3]
 for n in x3: # Esto ahora no hace nada porque los generadores son de un solo uso a menos que vuelvas a crear un nuevo generador(Con misma variable o no)
      print(n)
 print(l5)
+
+
+#Decoradores. Añaden funcionalidades a una funcion sin modificar la original. Suele usarse para testeos de funciones que necesitan funciones que aun no has terminado
+
+def funcion_necesita_decoracion():
+     print("Preciso decoracion")
+
+
+def meu_decorador(funcion_orixinal):
+     def funcion_envolvente():
+          print("Instrucciones de antes de la funcion original")
+          funcion_orixinal()
+          print("Instrucciones para despois de la funcion original")
+     return funcion_envolvente
