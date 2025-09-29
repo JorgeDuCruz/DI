@@ -6,6 +6,7 @@ Diccionarios
 
 
 """
+from locale import windows_locale
 from time import process_time_ns
 
 #Listas
@@ -151,3 +152,17 @@ print(z2)
 x2 = (n**2 for n in pruebaLis) # No es una lista, es un generador que es más parecido a una funcion
 for n in x2:
      print(n)
+
+def meu_range(fin, inicio=0, saltos=1):
+     Inicio = inicio
+     Fin = fin
+     while(inicio <= fin):
+          yield inicio # Es un return pero que no termina la funcion sino que devuelve un valor y sigue ejecutando
+          inicio += saltos
+x3 = (meu_range(inicio=3,fin=99,saltos=9)) # Lo mismo que en x2 pero ahora desglosado (y obviamente no tienen la misma funcion solo comparten que son generadores)
+
+l5 = [n for n in x3]
+
+for n in x3: # Esto ahora no hace nada porque los generadores son de un solo uso a menos que vuelvas a crear un nuevo generador(Con misma variable o no)
+     print(n)
+print(l5)
