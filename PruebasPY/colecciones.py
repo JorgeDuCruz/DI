@@ -180,3 +180,11 @@ def meu_decorador(funcion_orixinal):
           funcion_orixinal()
           print("Instrucciones para despois de la funcion original")
      return funcion_envolvente
+
+funcion_decorada = meu_decorador(funcion_necesita_decoracion)
+funcion_decorada()
+
+@ meu_decorador
+def funcion_sin_decoracion():
+     print("2")
+funcion_sin_decoracion()
