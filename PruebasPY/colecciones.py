@@ -92,3 +92,23 @@ def altura (persoa): # Devuelve la altura de cada persona que forma parte de la 
 
 taboa_alturas.sort(key = altura) # key es la funcion que usa para hacer el orden, la funcion recibe un parametro por cada objeto en la tabla a ordenar
 print(taboa_alturas)
+
+def saudar(lingua):
+     def saudar_es():
+          print("hola")
+
+     def saudar_gl():
+          print("ola")
+
+     def saudar_ig():
+          print("hello")
+
+     func_saudo = {"es": saudar_es, #Tener cuidado con no poner los () porque sino se ejecutan las funciones y ya
+                   "gl":saudar_gl,
+                   "ig":saudar_ig
+                   }
+     return func_saudo[lingua] # Puedes pasar funciones como si fueran variables
+
+f = saudar("gl")
+print(f)
+f()
