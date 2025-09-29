@@ -84,3 +84,11 @@ print(l2)
 l4 = ["uno","Dous","Tres","Cinco","Cuatro","Seis"]
 l4.sort(key = len)
 print(l4)
+
+taboa_alturas = [("Manuela",1.82),("Pepe",2.05),("Ana",1.76)]
+
+def altura (persoa): # Devuelve la altura de cada persona que forma parte de la tabla altura
+     return persoa[1]
+
+taboa_alturas.sort(key = altura) # key es la funcion que usa para hacer el orden, la funcion recibe un parametro por cada objeto en la tabla a ordenar
+print(taboa_alturas)
