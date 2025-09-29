@@ -124,3 +124,20 @@ copiarLis2 = filter(lambda n: n%2==0,pruebaLis)
 for n in copiarLis2:
      print(n)
 
+# filter, map, reduce importantes en python 2 pero prescindibles en python 3
+
+#Compresion de listas para sustituir a filter,map y reduce
+# [<contenido en lista> for <n> in <Lista>] esto permite hacerle algun cambio a los elemntos de una lista en la igualacion
+l3 = [n+1 for n in pruebaLis] # Le suma 1 a cada elemento de pruebaLis
+print(l3)
+# Al concepto anterior se le puede añadir una condicion para añadir el valor
+l4 = [n for n in pruebaLis if n%2==0]#Guarda solo los valores pares
+print(l4)
+
+m = ["+","*"]
+z = []
+for s in m:
+     for n in pruebaLis:
+          if n<4:
+               z.append(n*s)
+print(z)
