@@ -81,3 +81,6 @@ l2.remove(2) # elimina la primera coincidencia del valor indicado
 print(l2)
 l2.reverse() # le da la vuelta a la lista
 print(l2)
+l4 = ["uno","Dous","Tres","Cinco","Cuatro","Seis"]
+l4.sort(key = len)
+print(l4)
