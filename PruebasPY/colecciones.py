@@ -112,3 +112,15 @@ def saudar(lingua):
 f = saudar("gl")
 print(f)
 f()
+
+def es_par(n):
+     return n%2 == 0
+
+pruebaLis = [1,2,3,4]
+copiarLis = filter(es_par,pruebaLis) # Filtra de la lista PruebaLis usando la funcion es_par
+
+copiarLis2 = filter(lambda n: n%2==0,pruebaLis)
+
+for n in copiarLis2:
+     print(n)
+
