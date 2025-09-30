@@ -188,3 +188,19 @@ funcion_decorada()
 def funcion_sin_decoracion():
      print("2")
 funcion_sin_decoracion()
+
+autenticado = True
+
+def require_aitentificacion(funcion):
+     def funcion_decorada(*args,**kwargs):
+          if autenticado:
+               return funcion(*args,**kwargs)
+          else:
+               print("Erro no autenticado")
+     return funcion_decorada
+
+@ require_aitentificacion
+def sauda():
+     print("ola")
+
+sauda()
