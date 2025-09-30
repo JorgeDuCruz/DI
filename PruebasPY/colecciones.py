@@ -231,3 +231,16 @@ resta(7,23)
 mul(8,1)
 
 log('fichero.log')(suma)(1,2) # Para pasar parametros a funciones dentro de funciones usa () por cada funcion dentro de otra
+
+def division(a,b):
+     return a/b
+n1 = 1
+n2 = str(2)+"texto"
+try:
+     division(n1,n2)
+except ZeroDivisionError:
+     print("operacion abortada: No dividas por 0")
+except TypeError:
+     print("Tipos inadecuados")
+finally:
+     print("Finalmente se termino el bloque try")
