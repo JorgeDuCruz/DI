@@ -238,9 +238,7 @@ n1 = 1
 n2 = str(2)+"texto"
 try:
      division(n1,n2)
-except ZeroDivisionError:
-     print("operacion abortada: No dividas por 0")
-except TypeError:
-     print("Tipos inadecuados")
+except (ZeroDivisionError,TypeError):
+     print("Algun error")
 finally:
      print("Finalmente se termino el bloque try")
