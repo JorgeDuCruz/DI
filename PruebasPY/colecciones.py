@@ -237,8 +237,8 @@ def division(a,b):
 n1 = 1
 n2 = str(2)+"texto"
 try:
-     division(n1,n2)
+     resultado = division(n1,2)
 except (ZeroDivisionError,TypeError) as e:
      print("Algun error", str(e))
-finally:
-     print("Finalmente se termino el bloque try")
+else:
+     print("resultado = "+ str(resultado))
