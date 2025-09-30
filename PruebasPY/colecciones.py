@@ -207,7 +207,7 @@ sauda()
 
 def log(ficheiro_log):
      def decorador_log(func):
-          def decorador_funcion(*args,**kwargs):
+          def decorador_funcion(*args,**kwargs): #Argumentos para que se puedan pasar cualquier argumento en base a la funcion usada
                with open(ficheiro_log,'a') as ficheiro_aberto:
                     saida = func(*args,**kwargs)
                     ficheiro_aberto.write(f"{saida}\n")
@@ -229,3 +229,5 @@ def mul(a,b):
 suma(1,1)
 resta(7,23)
 mul(8,1)
+
+log('fichero.log')(suma)(1,2) # Para pasar parametros a funciones dentro de funciones usa () por cada funcion dentro de otra
