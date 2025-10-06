@@ -3,5 +3,6 @@ import empaquetado # Al importar ejecuta lo que no este dentro de nada, es decir
 from math import e # Importa las funcionalidades de la libreria math, con este metodo no hace falta escribir el math antes de la función que quieres usar
 #from math import * # Importa todas las funcionalidades de math
 
-empaquetado.unha_funcion()
-print(e)
+if __name__ == "__main__":
+    empaquetado.unha_funcion()
+    print(e)
