@@ -33,11 +33,12 @@ class PrimeraVentana(QMainWindow):
         self.txtSaudo.returnPressed.connect(self.on_btnSaudo_clicked)
 
         btnSaudo = QPushButton("Saúdo")
-        btnSaudo.clicked.connect(self.on_btnMaiusculas_toggled)
+        btnSaudo.clicked.connect(self.on_btnSaudo_clicked())
 
         btnMaiuscula = QPushButton("maiusculas")
         btnMaiuscula.setCheckable(True)
-        btnMaiuscula.toggled.connect(self.)
+        btnMaiuscula.toggled.connect(self.on_btnMaiusculas_toggled)
+        self.maiusculas = True
 
         btnVolver = QPushButton("Volver")
         btnVolver.clicked.connect(self.on_btnVolver_clicked)
