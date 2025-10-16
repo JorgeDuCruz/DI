@@ -1,7 +1,8 @@
 import sys,Ventana2
 
 from PyQt6.QtCore import Qt
-from PyQt6.QtWidgets import (QApplication, QMainWindow, QPushButton, QLabel, QLineEdit, QVBoxLayout, QWidget)
+from PyQt6.QtWidgets import (QApplication, QMainWindow, QPushButton, QLabel, QLineEdit, QVBoxLayout, QWidget, QCheckBox,
+                             QHBoxLayout)
 
 class PrimeraVentana(QMainWindow):
     def on_btnSaudo_clicked(self):
@@ -10,7 +11,9 @@ class PrimeraVentana(QMainWindow):
         if nome != "" :
             print(nome)
             self.lblEtiqueta.setText("Hola "+nome)
-            self.txtSaudo.clear()
+
+        self.on_btnMaiusculas_toggled()
+        self.txtSaudo.clear()
 
     def on_btnVolver_clicked(self):
         self.close()
@@ -18,6 +21,28 @@ class PrimeraVentana(QMainWindow):
 
     def on_btnMaiusculas_toggled(self):
         print("cambio")
+        if self.chkMaiusculas.isChecked():
+            self.lblEtiqueta.setText(self.lblEtiqueta.text().upper())
+            self.txtSaudo.setText(self.txtSaudo.text().upper()) # esta linea no funciona
+            self.maiusculas = True
+        else:
+            self.lblEtiqueta.setText(self.lblEtiqueta.text().lower())
+            self.txtSaudo.setText(self.txtSaudo.text().lower()) # esta linea tampoco
+            self.maiusculas = False
+
+    def on_cambio_texto(self):
+        if self.maiusculas:
+            self.txtSaudo.setText(self.txtSaudo.text().upper())
+        else:
+            self.txtSaudo.setText(self.txtSaudo.text().lower())
+
+
+    def on_chkOculto_toogled(self):
+        if self.chkOculto.isChecked():
+            self.saludo = self.txtSaudo.text()
+            self.txtSaudo.setText("*" * len(self.saludo))
+        else:
+            self.txtSaudo.setText(self.saludo)
 
     def __init__(self):
         super().__init__()
@@ -31,14 +56,27 @@ class PrimeraVentana(QMainWindow):
         self.txtSaudo = QLineEdit()
         self.txtSaudo.setPlaceholderText("Introduce tu nombre")
         self.txtSaudo.returnPressed.connect(self.on_btnSaudo_clicked)
+        self.txtSaudo.textChanged.connect(self.on_cambio_texto)
 
         btnSaudo = QPushButton("Saúdo")
-        btnSaudo.clicked.connect(self.on_btnSaudo_clicked())
+        btnSaudo.clicked.connect(self.on_btnSaudo_clicked)
 
-        btnMaiuscula = QPushButton("maiusculas")
-        btnMaiuscula.setCheckable(True)
-        btnMaiuscula.toggled.connect(self.on_btnMaiusculas_toggled)
-        self.maiusculas = True
+        """ cambiamos de un boton normal a una checkBox
+        self.btnMaiuscula = QPushButton("Maiúsculas")
+        self.btnMaiuscula.setCheckable(True)
+        self.btnMaiuscula.setChecked(True)
+        self.btnMaiuscula.toggled.connect(self.on_btnMaiusculas_toggled)
+        """
+        self.chkMaiusculas = QCheckBox("Maiusculas")
+        self.chkMaiusculas.setChecked(False)
+        self.chkMaiusculas.toggled.connect(self.on_btnMaiusculas_toggled)
+        self.maiusculas = False
+
+        self.chkOculto = QCheckBox("Ocultar")
+        self.chkOculto.setChecked(False)
+        self.chkOculto.toggled.connect(self.on_chkOculto_toogled)
+        self.oculto = False
+
 
         btnVolver = QPushButton("Volver")
         btnVolver.clicked.connect(self.on_btnVolver_clicked)
@@ -56,6 +94,10 @@ class PrimeraVentana(QMainWindow):
         caixaV.addWidget(btnSaudo)
         caixaV.addWidget(btnVolver)
 
+        caixaH = QHBoxLayout()
+        caixaH.addWidget(self.chkMaiusculas)
+        caixaH.addWidget(self.chkOculto)
+        caixaV.addLayout(caixaH)
         contaniner = QWidget()
         contaniner.setLayout(caixaV)
 
