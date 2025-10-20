@@ -6,13 +6,16 @@ from PyQt6.QtWidgets import (QApplication, QMainWindow, QPushButton, QLabel, QLi
 
 class PrimeraVentana(QMainWindow):
     def on_btnSaudo_clicked(self):
-        nome = self.txtSaudo.text().strip()
+        nome = self.saludo.strip()
+        if nome == "":
+            nome = self.txtSaudo.text().strip()
         print("Pulsado")
         if nome != "" :
             print(nome)
             self.lblEtiqueta.setText("Hola "+nome)
 
         self.on_btnMaiusculas_toggled()
+        self.saludo=""
         self.txtSaudo.clear()
 
     def on_btnVolver_clicked(self):
@@ -35,6 +38,7 @@ class PrimeraVentana(QMainWindow):
             self.txtSaudo.setText(self.txtSaudo.text().upper())
         else:
             self.txtSaudo.setText(self.txtSaudo.text().lower())
+        self.igualarTexto()
 
 
     def on_chkOculto_toogled(self):
@@ -43,6 +47,17 @@ class PrimeraVentana(QMainWindow):
             self.txtSaudo.setText("*" * len(self.saludo))
         else:
             self.txtSaudo.setText(self.saludo)
+
+    def igualarTexto(self):
+        if self.chkOculto.isChecked():
+            for letra in self.txtSaudo.text():
+                if letra != "*":
+                    indx = self.txtSaudo.text().find(letra)
+                    if len(self.saludo)<len(self.txtSaudo.text()):
+                        self.saludo = self.saludo[:indx]+letra+self.saludo[indx:]
+                        break
+            self.txtSaudo.setText("*"*len(self.saludo))
+        print(self.saludo)
 
     def __init__(self):
         super().__init__()
@@ -53,6 +68,7 @@ class PrimeraVentana(QMainWindow):
 
         caixaV = QVBoxLayout()
 
+        self.saludo = ""
         self.txtSaudo = QLineEdit()
         self.txtSaudo.setPlaceholderText("Introduce tu nombre")
         self.txtSaudo.returnPressed.connect(self.on_btnSaudo_clicked)
