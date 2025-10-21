@@ -3,6 +3,14 @@ gi.require_version("Gtk","3.0")
 from gi.repository import Gtk
 
 class FiestraPrincipal(Gtk.Window):
+    def on_btn_Saudo(self,extra,txtSaudo,lblSaudo):
+        nome = txtSaudo.get_text()
+        lblSaudo.set_text("Ola "+nome)
+
+    def on_lbl_Saudo(self,lblSaudo,txtSaudo):
+        print("Enter")
+        nome = txtSaudo.get_text()
+        lblSaudo.set_text("Ola "+nome)
     def __init__(self):
         super().__init__()
         self.set_title("Primera aplicacion con Gtk")
@@ -12,6 +20,8 @@ class FiestraPrincipal(Gtk.Window):
         txtSaudo = Gtk.Entry()
         caixaV.pack_start(txtSaudo,False,True,5)
         btnSaudo = Gtk.Button(label = "Saudar")
+        btnSaudo.connect("clicked",self.on_btn_Saudo,txtSaudo,lblSaudo)
+        txtSaudo.connect("activate", self.on_btn_Saudo,txtSaudo,lblSaudo)
         caixaV.pack_start(btnSaudo,False,False,5)
 
         self.add(caixaV)
