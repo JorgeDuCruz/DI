@@ -14,8 +14,12 @@ class Interfaz(QMainWindow):
         btnMOstrar = QPushButton("<<Mostrar")
         btnOcultar = QPushButton("Ocultar>>")
         btnCerrar = QPushButton("Cerrar")
+        btnCerrar.setFixedSize(60,30)
         lstOculta = QListView()
         lstVisible = QListView()
+
+        controlsInerte = QPushButton()
+        controlsInerte.setFixedSize(1,20)
 
         maia.addWidget(lblFollasVisibles)
         maia.addWidget(lblFollasOcultas,0,2,1,1)
@@ -23,7 +27,8 @@ class Interfaz(QMainWindow):
         maia.addWidget(lstOculta,1,2,5,1)
         maia.addWidget(btnOcultar,1,1,1,1)
         maia.addWidget(btnMOstrar,3,1,1,1)
-        maia.addWidget(btnCerrar,7,2,1,1)
+        maia.addWidget(btnMOstrar,7,1,1,1)
+        maia.addWidget(btnCerrar,8,2,1,1,alignment=Qt.AlignmentFlag.AlignRight)
 
         aux = QWidget()
         aux.setLayout(maia)
