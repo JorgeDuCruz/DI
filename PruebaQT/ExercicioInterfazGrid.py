@@ -4,9 +4,14 @@ from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QPushButton, QLabel, QLineEdit, QVBoxLayout, QWidget, QCheckBox,
                              QHBoxLayout, QListView, QGridLayout)
 
+import ModeloLista
+
+
 class Interfaz(QMainWindow):
     def __init__(self):
         super().__init__()
+        listaFollas = ["Folla 1","Folla 2","Folla 3"]
+
         self.setWindowTitle("Primera ventana con QT")
         maia = QGridLayout()
         lblFollasVisibles = QLabel("Follas Visibles")
@@ -17,6 +22,10 @@ class Interfaz(QMainWindow):
         btnCerrar.setFixedSize(60,30)
         lstOculta = QListView()
         lstVisible = QListView()
+
+        self.modelo = ModeloLista.ModeloFollas(listaFollas)
+        lstVisible.setModel(self.modelo)
+
 
         controlsInerte = QPushButton()
         controlsInerte.setFixedSize(1,20)
