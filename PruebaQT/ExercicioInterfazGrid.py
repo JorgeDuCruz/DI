@@ -33,7 +33,7 @@ class Interfaz(QMainWindow):
 
     def __init__(self):
         super().__init__()
-        listaFollas = ["Folla 1","Folla 2","Folla 3"]
+        listaFollas = [("Folla 1","F"),("Documento 2","D"),("Folla 3","F")]
         self.modeloVisible = ModeloLista.ModeloFollas(listaFollas)
         self.modeloOculto = ModeloLista.ModeloFollas()
 
