@@ -1,6 +1,6 @@
 import  gi
 gi.require_version("Gtk","3.0")
-from gi.repository import Gtk,Gdk,GObject
+from gi.repository import Gtk
 
 
 class EjemplosBoxColor(Gtk.Window):
@@ -12,6 +12,8 @@ class EjemplosBoxColor(Gtk.Window):
         caixa = Gtk.Grid()
         panelcapition = Gtk.Frame(label="Panel Caption")
         panelcapition.add(caixa)
+        panelcapition.set_halign(Gtk.Align.CENTER)
+        panelcapition.set_valign(Gtk.Align.CENTER)
 
 #Priemra caja
         framePanel = Gtk.Frame()
@@ -98,7 +100,31 @@ class EjemplosBoxColor(Gtk.Window):
         tab2 = Gtk.Box()
         tabs.append_page(tab2,Gtk.Label(label="Other Tab"))
 
+#Tercera Caja
+        #Textos
+        textosBox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        caixa.attach_next_to(textosBox,framePanel,Gtk.PositionType.BOTTOM,1,1)
+        textBox = Gtk.Entry()
 
+        passwBox = Gtk.Entry()
+        passwBox.set_invisible_char("*")
+        passwBox.set_visibility(False)
+
+        comboBox = Gtk.ComboBox()
+        comboBox.set_model(model=listaConteido)
+        renderer2 = Gtk.CellRendererText()
+        comboBox.pack_start(renderer2,False)
+        comboBox.add_attribute(renderer2,"text",0)
+
+        #Añadir cajas de textos
+        textosBox.add(textBox)
+        textosBox.add(passwBox)
+        textosBox.add(comboBox)
+
+
+#Cuarta Caja
+        textArea = Gtk.TextView()
+        caixa.attach_next_to(textArea,tabs,Gtk.PositionType.BOTTOM,1,1)
 
     #Crear la ventana
         self.add(panelcapition)
