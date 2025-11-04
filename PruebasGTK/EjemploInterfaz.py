@@ -25,6 +25,14 @@ class EjemplosBoxColor(Gtk.Window):
         listaConteido = Gtk.ListStore(str)
         listaConteido.append(["Item1"])
         listaConteido.append(["Item2"])
+        listaConteido.append(["Item2"])
+        listaConteido.append(["Item2"])
+        listaConteido.append(["Item2"])
+        listaConteido.append(["Item2"])
+        listaConteido.append(["Item2"])
+        listaConteido.append(["Item2"])
+        listaConteido.append(["Item2"])
+        listaConteido.append(["Item2"])
 
         lista = Gtk.TreeView(model=listaConteido)
 
@@ -58,20 +66,18 @@ class EjemplosBoxColor(Gtk.Window):
         BotonesPanel.add(botonesRadio3)
         BotonesPanel.add(botonesRadioInac)
         BotonesPanel.add(relleno)
-        BotonesPanel.add(boton)
+        BotonesPanel.pack_end(boton,False,False,2)
 
 #Segunda Caja
         tabs = Gtk.Notebook()
-        caixa.add(tabs)
+        caixa.attach_next_to(tabs,framePanel,Gtk.PositionType.RIGHT,1,1)
 
     #Primer tab
         tab1 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        tabs.add(tab1)
-        tabs.set_tab_label_text(tab1,"Selected Tab")
+        tabs.append_page(tab1,Gtk.Label(label="Selected Tab"))
 
         #Checkeds Box
         uncheckedBox = Gtk.CheckButton(label="Unchecked Box")
-
 
         checkedBox = Gtk.CheckButton(label="Checked Box")
         checkedBox.set_active(True)
@@ -84,12 +90,13 @@ class EjemplosBoxColor(Gtk.Window):
         tab1.add(checkedBox)
         tab1.add(inactiveCheckBox)
 
-        #Deslizador TODO
+        #Deslizador
+        slider = Gtk.Scale.new_with_range(Gtk.Orientation.HORIZONTAL,0,100,1)
+        tab1.pack_end(slider,False,False,2)
 
     #Segunda tab
         tab2 = Gtk.Box()
-        tabs.add(tab2)
-        tabs.set_tab_label_text(tab2,"Other Tab")
+        tabs.append_page(tab2,Gtk.Label(label="Other Tab"))
 
 
 
