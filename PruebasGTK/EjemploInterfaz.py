@@ -8,12 +8,12 @@ class EjemplosBoxColor(Gtk.Window):
         super().__init__()
         self.set_title("Ejemplo de layout")
         self.set_size_request(500,500)
-    #Contenedor general
+#Contenedor general
         caixa = Gtk.Grid()
         panelcapition = Gtk.Frame(label="Panel Caption")
         panelcapition.add(caixa)
 
-    #Priemra caja
+#Priemra caja
         framePanel = Gtk.Frame()
         framePanel.set_label("Panel")
         caixa.add(framePanel)
@@ -59,6 +59,38 @@ class EjemplosBoxColor(Gtk.Window):
         BotonesPanel.add(botonesRadioInac)
         BotonesPanel.add(relleno)
         BotonesPanel.add(boton)
+
+#Segunda Caja
+        tabs = Gtk.Notebook()
+        caixa.add(tabs)
+
+    #Primer tab
+        tab1 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        tabs.add(tab1)
+        tabs.set_tab_label_text(tab1,"Selected Tab")
+
+        #Checkeds Box
+        uncheckedBox = Gtk.CheckButton(label="Unchecked Box")
+
+
+        checkedBox = Gtk.CheckButton(label="Checked Box")
+        checkedBox.set_active(True)
+
+        inactiveCheckBox = Gtk.CheckButton(label="Inactive Checked Box")
+        inactiveCheckBox.set_sensitive(False)
+
+        #Añadir checked box
+        tab1.add(uncheckedBox)
+        tab1.add(checkedBox)
+        tab1.add(inactiveCheckBox)
+
+        #Deslizador TODO
+
+    #Segunda tab
+        tab2 = Gtk.Box()
+        tabs.add(tab2)
+        tabs.set_tab_label_text(tab2,"Other Tab")
+
 
 
     #Crear la ventana
