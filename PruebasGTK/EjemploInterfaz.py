@@ -14,7 +14,8 @@ class EjemplosBoxColor(Gtk.Window):
         if seleccion is not None:
             modelo = combo.get_model()
             elemento = modelo [seleccion][0]
-            self.escribir_textView(elemento+"\n")
+            elemento2 = modelo [seleccion][1]
+            self.escribir_textView("Pokemon: "+elemento+" pokédex:"+str(elemento2)+"\n")
 
 
     def escribir_textView(self,texto):
@@ -43,15 +44,15 @@ class EjemplosBoxColor(Gtk.Window):
         framePanel.add(PanelContent)
 
     #Lista
-        listaConteido = Gtk.ListStore(str)
-        listaConteido.append(["Pikachu"])
-        listaConteido.append(["Bulbasaur"])
-        listaConteido.append(["Charmander"])
-        listaConteido.append(["Squirtle"])
-        listaConteido.append(["Eevee"])
-        listaConteido.append(["Jigglypuff"])
-        listaConteido.append(["Meowth"])
-        listaConteido.append(["Snorlax"])
+        listaConteido = Gtk.ListStore(str,int)
+        listaConteido.append(["Pikachu", 25])
+        listaConteido.append(["Bulbasaur", 1])
+        listaConteido.append(["Charmander", 4])
+        listaConteido.append(["Squirtle", 7])
+        listaConteido.append(["Eevee", 133])
+        listaConteido.append(["Jigglypuff", 39])
+        listaConteido.append(["Meowth", 52])
+        listaConteido.append(["Snorlax", 143])
 
         lista = Gtk.TreeView(model=listaConteido)
 
