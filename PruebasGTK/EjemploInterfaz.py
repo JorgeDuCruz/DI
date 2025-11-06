@@ -11,6 +11,14 @@ class EjemplosBoxColor(Gtk.Window):
             final = buffer.get_end_iter()
             buffer.insert(final,"Botón "+num+" presionado\n")
 
+    def on_combo_changed(self,combo):
+        seleccion = combo.get_active_iter()
+        if seleccion is not None:
+            modelo = combo.get_model()
+            elemento = modelo [seleccion][0]
+            buffer = self.textArea.get_buffer()
+            final = buffer.get_end_iter()
+            buffer.insert(final, elemento+"\n")
     def __init__(self):
         super().__init__()
         self.set_title("Ejemplo de layout")
@@ -32,16 +40,14 @@ class EjemplosBoxColor(Gtk.Window):
 
     #Lista
         listaConteido = Gtk.ListStore(str)
-        listaConteido.append(["Item1"])
-        listaConteido.append(["Item2"])
-        listaConteido.append(["Item2"])
-        listaConteido.append(["Item2"])
-        listaConteido.append(["Item2"])
-        listaConteido.append(["Item2"])
-        listaConteido.append(["Item2"])
-        listaConteido.append(["Item2"])
-        listaConteido.append(["Item2"])
-        listaConteido.append(["Item2"])
+        listaConteido.append(["Pikachu"])
+        listaConteido.append(["Bulbasaur"])
+        listaConteido.append(["Charmander"])
+        listaConteido.append(["Squirtle"])
+        listaConteido.append(["Eevee"])
+        listaConteido.append(["Jigglypuff"])
+        listaConteido.append(["Meowth"])
+        listaConteido.append(["Snorlax"])
 
         lista = Gtk.TreeView(model=listaConteido)
 
@@ -127,6 +133,7 @@ class EjemplosBoxColor(Gtk.Window):
         renderer2 = Gtk.CellRendererText()
         comboBox.pack_start(renderer2,False)
         comboBox.add_attribute(renderer2,"text",0)
+        comboBox.connect("changed",self.on_combo_changed)
 
         #Añadir cajas de textos
         textosBox.add(textBox)
