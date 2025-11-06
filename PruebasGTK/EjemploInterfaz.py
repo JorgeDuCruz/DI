@@ -7,18 +7,22 @@ class EjemplosBoxColor(Gtk.Window):
     def on_rbt_toggled(self,boton,num):
         estado = boton.get_active()
         if estado:
-            buffer = self.textArea.get_buffer()
-            final = buffer.get_end_iter()
-            buffer.insert(final,"Botón "+num+" presionado\n")
+            self.escribir_textView("Botón "+num+" presionado\n")
 
     def on_combo_changed(self,combo):
         seleccion = combo.get_active_iter()
         if seleccion is not None:
             modelo = combo.get_model()
             elemento = modelo [seleccion][0]
-            buffer = self.textArea.get_buffer()
-            final = buffer.get_end_iter()
-            buffer.insert(final, elemento+"\n")
+            self.escribir_textView(elemento+"\n")
+
+
+    def escribir_textView(self,texto):
+        buffer = self.textArea.get_buffer()
+        final = buffer.get_end_iter()
+        buffer.insert(final, texto)
+
+
     def __init__(self):
         super().__init__()
         self.set_title("Ejemplo de layout")
