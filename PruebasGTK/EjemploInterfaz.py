@@ -4,6 +4,11 @@ from gi.repository import Gtk
 
 
 class EjemplosBoxColor(Gtk.Window):
+    def on_rbt_toggled(self,boton,num):
+        estado =str( boton.get_active())
+        print(num+"estado: "+estado)
+
+
     def __init__(self):
         super().__init__()
         self.set_title("Ejemplo de layout")
@@ -52,6 +57,11 @@ class EjemplosBoxColor(Gtk.Window):
         botonesRadio1 =  Gtk.RadioButton.new_with_label_from_widget(None, "Boton 1")
         botonesRadio2 = Gtk.RadioButton.new_with_label_from_widget(botonesRadio1, "Boton 2")
         botonesRadio3 = Gtk.RadioButton.new_with_label_from_widget(botonesRadio1, "Boton 3")
+
+        botonesRadio1.connect ("toggled",self.on_rbt_toggled,"1")
+        botonesRadio2.connect ("toggled",self.on_rbt_toggled,"2")
+        botonesRadio3.connect ("toggled",self.on_rbt_toggled,"3")
+
         botonesRadioInac = Gtk.RadioButton.new_with_label_from_widget(botonesRadio1, "Boton inactivo")
         botonesRadioInac.set_sensitive(False)
 
