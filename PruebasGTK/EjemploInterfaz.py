@@ -5,9 +5,11 @@ from gi.repository import Gtk
 
 class EjemplosBoxColor(Gtk.Window):
     def on_rbt_toggled(self,boton,num):
-        estado =str( boton.get_active())
-        print(num+"estado: "+estado)
-
+        estado = boton.get_active()
+        if estado:
+            buffer = self.textArea.get_buffer()
+            final = buffer.get_end_iter()
+            buffer.insert(final,"Botón "+num+" presionado\n")
 
     def __init__(self):
         super().__init__()
@@ -133,8 +135,8 @@ class EjemplosBoxColor(Gtk.Window):
 
 
 #Cuarta Caja
-        textArea = Gtk.TextView()
-        caixa.attach_next_to(textArea,tabs,Gtk.PositionType.BOTTOM,1,1)
+        self.textArea = Gtk.TextView()
+        caixa.attach_next_to(self.textArea,tabs,Gtk.PositionType.BOTTOM,1,1)
 
     #Crear la ventana
         self.add(panelcapition)
