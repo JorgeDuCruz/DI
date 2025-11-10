@@ -1,7 +1,7 @@
 import sys
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QPushButton, QLabel, QLineEdit, QVBoxLayout, QWidget, QCheckBox,
-                             QHBoxLayout, QListView, QGridLayout, QComboBox, QTextEdit)
+                             QHBoxLayout, QListView, QGridLayout, QComboBox, QTextEdit, QRadioButton, QButtonGroup)
 
 import ModeloLista
 
@@ -40,6 +40,28 @@ class Interfaz(QMainWindow):
 
         self.txtAreaTexto = QTextEdit()
         maia.addWidget(self.txtAreaTexto, 1, 1, 1, 1)
+
+        grupo1 = QButtonGroup(self)
+
+        grupo2 = QButtonGroup(self)
+
+        caixaV2 = QVBoxLayout()
+        rb1 = QRadioButton("Botón 1")
+        rb2 = QRadioButton("Botón 2")
+        rb3 = QRadioButton("Botón 3")
+        rb4 = QRadioButton("Botón 4")
+
+
+        grupo1.addButton(rb1)
+        grupo1.addButton(rb2)
+        grupo2.addButton(rb3)
+        grupo2.addButton(rb4)
+
+        caixaV2.addWidget(rb1)
+        caixaV2.addWidget(rb2)
+        caixaV2.addWidget(rb3)
+        caixaV2.addWidget(rb4)
+        maia.addLayout(caixaV2,0,0,1,1)
 
         aux = QWidget()
         aux.setLayout(maia)
