@@ -1,9 +1,9 @@
 import sys
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QPushButton, QLabel, QLineEdit, QVBoxLayout, QWidget, QCheckBox,
-                             QHBoxLayout, QListView, QGridLayout, QComboBox, QTextEdit, QRadioButton, QButtonGroup)
-
-import ModeloLista
+                             QHBoxLayout, QListView, QGridLayout, QComboBox, QTextEdit, QRadioButton, QButtonGroup,
+                             QTableView)
+from EjemplosGTK_en_QT.ModeloTaboa import ModeloTaboa
 
 
 class Interfaz(QMainWindow):
@@ -20,6 +20,9 @@ class Interfaz(QMainWindow):
         super().__init__()
         maia = QGridLayout()
         self.pokedex = [("Pikachu", "Charizard", "Bulbasaur", "Squirtle", "Eevee", "Mewtwo"),(25, 6, 1, 7, 133, 150)]
+        datos = [["Nome","DNI","Xenero","Falecido"],
+                 ["Ana","3456J","Muller",False],
+                 ["Pepe","9876T","Home",True]]
 
         caixaV = QVBoxLayout()
         txt = QLineEdit()
@@ -62,6 +65,11 @@ class Interfaz(QMainWindow):
         caixaV2.addWidget(rb3)
         caixaV2.addWidget(rb4)
         maia.addLayout(caixaV2,0,0,1,1)
+
+        self.taboa = QTableView()
+        self.modelo = ModeloTaboa(datos)
+        self.taboa.setModel(self.modelo)
+        maia.addWidget(self.taboa,0,1,1,1)
 
         aux = QWidget()
         aux.setLayout(maia)
