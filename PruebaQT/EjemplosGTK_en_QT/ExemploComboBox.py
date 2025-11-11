@@ -16,6 +16,11 @@ class Interfaz(QMainWindow):
     def on_comboBox_changed(self,indice):
         self.txtAreaTexto.append("Selecionaste el pokemon: "+self.pokedex[0][indice]+" número:"+str(self.pokedex[1][indice]))
 
+    def on_taboa_selectionChanged(self):
+        indices = self.taboa.selectedIndexes()
+        if indices is not None:
+            print(self.modelo.taboa[indices[0].row()][indices[0].column()])
+
     def __init__(self):
         super().__init__()
         maia = QGridLayout()
@@ -71,8 +76,12 @@ class Interfaz(QMainWindow):
         clasificador.setTabPosition(QTabWidget.TabPosition.North)
 
         self.taboa = QTableView()
+        self.taboa.setSelectionMode(QTableView.SelectionMode.SingleSelection)
         self.modelo = ModeloTaboa(datos)
         self.taboa.setModel(self.modelo)
+        self.seleccion = self.taboa.selectionModel()
+        self.seleccion.selectionChanged.connect(self.on_taboa_selectionChanged)
+
         clasificador.addTab(self.taboa,"Taboa")
         txtOutro = QTextEdit()
         clasificador.addTab(txtOutro,"Cadro de texto")
