@@ -2,7 +2,7 @@ import sys
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QPushButton, QLabel, QLineEdit, QVBoxLayout, QWidget, QCheckBox,
                              QHBoxLayout, QListView, QGridLayout, QComboBox, QTextEdit, QRadioButton, QButtonGroup,
-                             QTableView)
+                             QTableView, QTabWidget)
 from EjemplosGTK_en_QT.ModeloTaboa import ModeloTaboa
 
 
@@ -19,6 +19,7 @@ class Interfaz(QMainWindow):
     def __init__(self):
         super().__init__()
         maia = QGridLayout()
+        self.setMinimumSize(1000,500)
         self.pokedex = [("Pikachu", "Charizard", "Bulbasaur", "Squirtle", "Eevee", "Mewtwo"),(25, 6, 1, 7, 133, 150)]
         datos = [["Nome","DNI","Xenero","Falecido"],
                  ["Ana","3456J","Muller",False],
@@ -66,10 +67,18 @@ class Interfaz(QMainWindow):
         caixaV2.addWidget(rb4)
         maia.addLayout(caixaV2,0,0,1,1)
 
+        clasificador = QTabWidget()
+        clasificador.setTabPosition(QTabWidget.TabPosition.North)
+
         self.taboa = QTableView()
         self.modelo = ModeloTaboa(datos)
         self.taboa.setModel(self.modelo)
-        maia.addWidget(self.taboa,0,1,1,1)
+        clasificador.addTab(self.taboa,"Taboa")
+        txtOutro = QTextEdit()
+        clasificador.addTab(txtOutro,"Cadro de texto")
+
+
+        maia.addWidget(clasificador,0,1,1,1)
 
         aux = QWidget()
         aux.setLayout(maia)
