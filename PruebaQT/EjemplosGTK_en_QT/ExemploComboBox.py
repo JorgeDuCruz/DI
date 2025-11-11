@@ -19,7 +19,16 @@ class Interfaz(QMainWindow):
     def on_taboa_selectionChanged(self):
         indices = self.taboa.selectedIndexes()
         if indices is not None:
-            print(self.modelo.taboa[indices[0].row()][indices[0].column()])
+            contenido = self.modelo.taboa[indices[0].row()][indices[0].column()]
+            print(contenido)
+            self.txtAreaTexto.append(str(contenido))
+
+    def on_rb1_toggled(self):
+        if self.rb1.isChecked():
+            campos = self.txtAreaTexto.toPlainText().split(",")
+            self.modelo.taboa.append([campos[0],campos[1],campos[2],True if campos[3]=="True" else False])
+            self.modelo.layoutChanged.emit()
+            print(campos)
 
     def __init__(self):
         super().__init__()
@@ -55,21 +64,22 @@ class Interfaz(QMainWindow):
         grupo2 = QButtonGroup(self)
 
         caixaV2 = QVBoxLayout()
-        rb1 = QRadioButton("Botón 1")
-        rb2 = QRadioButton("Botón 2")
-        rb3 = QRadioButton("Botón 3")
-        rb4 = QRadioButton("Botón 4")
+        self.rb1 = QRadioButton("Botón 1")
+        self.rb1.toggled.connect(self.on_rb1_toggled)
+        self.rb2 = QRadioButton("Botón 2")
+        self.rb3 = QRadioButton("Botón 3")
+        self.rb4 = QRadioButton("Botón 4")
 
 
-        grupo1.addButton(rb1)
-        grupo1.addButton(rb2)
-        grupo2.addButton(rb3)
-        grupo2.addButton(rb4)
+        grupo1.addButton(self.rb1)
+        grupo1.addButton(self.rb2)
+        grupo2.addButton(self.rb3)
+        grupo2.addButton(self.rb4)
 
-        caixaV2.addWidget(rb1)
-        caixaV2.addWidget(rb2)
-        caixaV2.addWidget(rb3)
-        caixaV2.addWidget(rb4)
+        caixaV2.addWidget(self.rb1)
+        caixaV2.addWidget(self.rb2)
+        caixaV2.addWidget(self.rb3)
+        caixaV2.addWidget(self.rb4)
         maia.addLayout(caixaV2,0,0,1,1)
 
         clasificador = QTabWidget()
