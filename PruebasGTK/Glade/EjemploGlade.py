@@ -20,7 +20,11 @@ class EjemploGlade:
 
     def __init__(self):
 
-        listaDetalleAlbara = [["00012",'']]
+        listaCabeceiraAlbara = ['Código','Descripción',"Cantidade","Prezo ud","Prezo Total"]
+        listaDetalleAlbara = [["00012",'Parafuxo M8',100,0.02,2],
+                              ["00013",'Arandela 10',200,0.001,0.2],
+                              ["00014",'Porca M6',10,0.01,0.1],
+                              ["00015",'Varilla roscada M6',10,0.50,5]]
 
         builder = Gtk.Builder()
         builder.add_from_file("formularioAlbara.glade")
@@ -35,7 +39,12 @@ class EjemploGlade:
                   "on_btnAceptar_clicked":self.on_btnAceptar_clicked,
                   "on_btnCancelar_clicked":self.on_btnCancelar_clicked}
         builder.connect_signals(sinais)
-        self.trvDetallealbara.set_model()
+
+        modelo = Gtk.ListStore(str,str,int,float,float)
+        for entrada in listaDetalleAlbara:
+            modelo.append(entrada)
+        self.trvDetallealbara.set_model(modelo)
+
 
 
 
