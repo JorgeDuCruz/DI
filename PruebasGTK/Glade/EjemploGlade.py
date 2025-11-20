@@ -44,6 +44,10 @@ class EjemploGlade:
         for entrada in listaDetalleAlbara:
             modelo.append(entrada)
         self.trvDetallealbara.set_model(modelo)
+        for i,columna in enumerate (listaCabeceiraAlbara):
+            celda = Gtk.CellRendererText()
+            columna = Gtk.TreeViewColumn(columna,celda,text=i)
+            self.trvDetallealbara.append_column(columna)
 
 
 
