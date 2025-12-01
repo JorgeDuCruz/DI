@@ -4,6 +4,15 @@ from gi.repository import Gtk,Gdk,GObject
 
 
 class EjemploTree(Gtk.Window):
+    def on_celdaFalecido_toogled(self,celda,fila,modelo):
+        print('Clicamos en ',fila)
+        modelo [fila][4] = not modelo [fila][4]
+
+    def on_celdaNome_edited(self,celda,fila,cadroTexto,numero,modelo):
+        print("Editamos: ",numero,fila,cadroTexto)
+        if numero == 1:
+            modelo[fila][1] = cadroTexto
+
     def __init__(self):
         super().__init__()
         self.set_title("Ejemplo de Treeview en árbol")
@@ -20,6 +29,8 @@ class EjemploTree(Gtk.Window):
 
         for i, tituloColumna in enumerate (('Dni','Nome')):
             celda = Gtk.CellRendererText()
+            celda.set_property("editable",True)
+            celda.connect("edited",self.on_celdaNome_edited,i,modelo)
             columna = Gtk.TreeViewColumn(tituloColumna,celda,text = i)
             trvVista.append_column(columna)
         celda = Gtk.CellRendererProgress()
@@ -31,6 +42,8 @@ class EjemploTree(Gtk.Window):
         trvVista.append_column(columna)
 
         celda = Gtk.CellRendererToggle()
+        celda.set_property("sensitive",True)
+        celda.connect("toggled", self.on_celdaFalecido_toogled,modelo)
         columna = Gtk.TreeViewColumn('Falecido',celda,active=4)
         trvVista.append_column(columna)
 
