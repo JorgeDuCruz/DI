@@ -13,8 +13,8 @@ class EjemploTree(Gtk.Window):
         if numero == 1:
             modelo[fila][1] = cadroTexto
 
-    def on_xenero_changed(self,celda,fila,indx,modeloCombo,modeloTab):
-        modeloTab[fila][3] = modeloCombo[indx][0]
+    def on_xenero_changed(self,celda,fila,indx,modeloTab):
+        modeloTab[fila][3] = celda.props.model[indx][0]
 
     def __init__(self):
         super().__init__()
@@ -51,8 +51,8 @@ class EjemploTree(Gtk.Window):
         celda.set_property("editable",True)
         celda.props.model = modeloComboXenero
         celda.set_property("text-column",0)
-        celda.set_property("has-entry",True)
-        celda.connect("changed",self.on_xenero_changed,modeloComboXenero,modelo)
+        celda.set_property("has-entry",False)
+        celda.connect("changed",self.on_xenero_changed,modelo)
 
         columna = Gtk.TreeViewColumn('Xénero', celda, text=3)
         trvVista.append_column(columna)
