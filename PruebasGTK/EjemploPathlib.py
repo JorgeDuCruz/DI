@@ -42,6 +42,11 @@ class EjemploTree(Gtk.Window):
 
         modelo = Gtk.TreeStore(str,str)
         trvVista = Gtk.TreeView(model=modelo)
+
+        barraDesplazamento = Gtk.ScrolledWindow()
+        barraDesplazamento.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
+        barraDesplazamento.add(trvVista)
+
         seleccion = trvVista.get_selection()
         seleccion.connect("changed",self.on_seleccion_changed)
 
@@ -59,7 +64,7 @@ class EjemploTree(Gtk.Window):
 
         self.explorarDirectorio('/home/dam/',None, modelo)
 
-        caixav.pack_start(trvVista,True,True,10)
+        caixav.pack_start(barraDesplazamento,True,True,10)
 
         self.add(caixav)
         self.connect("delete_event",Gtk.main_quit)
