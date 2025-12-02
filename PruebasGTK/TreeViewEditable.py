@@ -13,6 +13,9 @@ class EjemploTree(Gtk.Window):
         if numero == 1:
             modelo[fila][1] = cadroTexto
 
+    def on_xenero_changed(self,celda,fila,indx,modeloCombo,modeloTab):
+        modeloTab[fila][3] = modeloCombo[indx][0]
+
     def __init__(self):
         super().__init__()
         self.set_title("Ejemplo de Treeview en árbol")
@@ -37,7 +40,20 @@ class EjemploTree(Gtk.Window):
         columna = Gtk.TreeViewColumn('Edade',celda, value = 2)
         trvVista.append_column(columna)
 
-        celda = Gtk.CellRendererText()
+        modeloComboXenero = Gtk.ListStore(str)
+        modeloComboXenero.append(("Home",))
+        modeloComboXenero.append(("Muller",))
+        modeloComboXenero.append(("Outros",))
+        modeloComboXenero.append(("Decepción",))
+
+        celda = Gtk.CellRendererCombo()
+
+        celda.set_property("editable",True)
+        celda.props.model = modeloComboXenero
+        celda.set_property("text-column",0)
+        celda.set_property("has-entry",True)
+        celda.connect("changed",self.on_xenero_changed,modeloComboXenero,modelo)
+
         columna = Gtk.TreeViewColumn('Xénero', celda, text=3)
         trvVista.append_column(columna)
 
