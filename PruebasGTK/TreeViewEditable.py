@@ -33,6 +33,7 @@ class EjemploTree(Gtk.Window):
             self.filtradoEdad = scale.get_value()
             self.filtradoEdadAux = boton.get_label()
             modelo.refilter()
+
     def on_scaleEdad_changed(self,scale,modelo):
         self.filtradoEdad = scale.get_value()
         modelo.refilter()
@@ -53,7 +54,7 @@ class EjemploTree(Gtk.Window):
 
         self.filtradoXenero = None
         self.filtradoEdad = None
-        self.filtradoEdadAux = None
+        self.filtradoEdadAux = "Mayor de"
 
         caixav = Gtk.Box(orientation= Gtk.Orientation.VERTICAL, spacing= 6)
         modelo = Gtk.ListStore(str,str,int,str,bool)
