@@ -16,19 +16,38 @@ class EjemploTree(Gtk.Window):
     def on_xenero_changed(self,celda,fila,indx,modeloTab):
         modeloTab[fila][3] = celda.props.model[indx][0]
 
+    def filtro_usuarios_xenero(self,modelo, fila, datosUsuario):
+        if self.filtradoXenero is None or self.filtradoXenero == "None":
+            return True
+        else:
+            return modelo [fila] [3] == self.filtradoXenero
+
+    def on_xeneroToggled(self,boton,modelo):
+        if boton.get_active():
+            print(boton.get_label())
+            self.filtradoXenero = boton.get_label()
+            modelo.refilter()
+
     def __init__(self):
         super().__init__()
         self.set_title("Ejemplo de Treeview en árbol")
 
+        self.filtradoXenero = None
+
         caixav = Gtk.Box(orientation= Gtk.Orientation.VERTICAL, spacing= 6)
         modelo = Gtk.ListStore(str,str,int,str,bool)
         listaUsuarios = [('1234H','Ana Perez',34,'Muller',False),
-                         ('4321T','Pepe Diz',78,'Home',True)]
+                         ('4321T','Pepe Diz',78,'Home',True),
+                         ('5678U','Rosa Gil',56, 'Muller',False),
+                         ('8765R','Juan Vila', 43,'Home',False),
+                         ('4567P','Iris Vazquez',39,'Outros',True)]
 
         for usuario in listaUsuarios:
             modelo.append(usuario)
+        modeloFiltrado = modelo.filter_new()
+        modeloFiltrado.set_visible_func(self.filtro_usuarios_xenero)
 
-        trvVista = Gtk.TreeView(model=modelo)
+        trvVista = Gtk.TreeView(model=modeloFiltrado)
 
         for i, tituloColumna in enumerate (('Dni','Nome')):
             celda = Gtk.CellRendererText()
@@ -44,7 +63,6 @@ class EjemploTree(Gtk.Window):
         modeloComboXenero.append(("Home",))
         modeloComboXenero.append(("Muller",))
         modeloComboXenero.append(("Outros",))
-        modeloComboXenero.append(("Decepción",))
 
         celda = Gtk.CellRendererCombo()
 
@@ -64,6 +82,19 @@ class EjemploTree(Gtk.Window):
         trvVista.append_column(columna)
 
         caixav.pack_start(trvVista, True, True, 5)
+
+        caixaH = Gtk.Box ( orientation= Gtk.Orientation.HORIZONTAL,spacing=4)
+        rbtHome = Gtk.RadioButton(label = "Home")
+        rbtMuller = Gtk.RadioButton.new_with_label_from_widget(rbtHome,label = "Muller")
+        rbtOutros = Gtk.RadioButton.new_with_label_from_widget(rbtHome,label = "Outros")
+        caixaH.pack_start(rbtHome,False,False,2)
+        caixaH.pack_start(rbtMuller,False,False,2)
+        caixaH.pack_start(rbtOutros,False,False,2)
+        rbtHome.connect("toggled",self.on_xeneroToggled,modeloFiltrado)
+        rbtMuller.connect("toggled",self.on_xeneroToggled,modeloFiltrado)
+        rbtOutros.connect("toggled",self.on_xeneroToggled,modeloFiltrado)
+
+        caixav.pack_start(caixaH,True,True,0)
 
         self.add(caixav)
         self.connect("delete_event",Gtk.main_quit)
