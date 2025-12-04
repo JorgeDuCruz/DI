@@ -28,11 +28,32 @@ class EjemploTree(Gtk.Window):
             self.filtradoXenero = boton.get_label()
             modelo.refilter()
 
+    def on_rbtEdad_toggled(self,boton,scale,modelo):
+        if boton.get_active():
+            self.filtradoEdad = scale.get_value()
+            self.filtradoEdadAux = boton.get_label()
+            modelo.refilter()
+    def on_scaleEdad_changed(self,scale,modelo):
+        self.filtradoEdad = scale.get_value()
+        modelo.refilter()
+
+    def filtro_usuarios_edade(self,modelo, fila, datosUsuario):
+        if self.filtradoEdadAux is None or self.filtradoEdad is None:
+            return True
+        else:
+            if self.filtradoEdadAux=="Mayor de":
+                return modelo[fila][2] > self.filtradoEdad
+            else:
+                return modelo[fila][2] < self.filtradoEdad
+
+
     def __init__(self):
         super().__init__()
         self.set_title("Ejemplo de Treeview en árbol")
 
         self.filtradoXenero = None
+        self.filtradoEdad = None
+        self.filtradoEdadAux = None
 
         caixav = Gtk.Box(orientation= Gtk.Orientation.VERTICAL, spacing= 6)
         modelo = Gtk.ListStore(str,str,int,str,bool)
@@ -45,7 +66,8 @@ class EjemploTree(Gtk.Window):
         for usuario in listaUsuarios:
             modelo.append(usuario)
         modeloFiltrado = modelo.filter_new()
-        modeloFiltrado.set_visible_func(self.filtro_usuarios_xenero)
+        #modeloFiltrado.set_visible_func(self.filtro_usuarios_xenero)
+        modeloFiltrado.set_visible_func(self.filtro_usuarios_edade)
 
         trvVista = Gtk.TreeView(model=modeloFiltrado)
 
@@ -94,7 +116,22 @@ class EjemploTree(Gtk.Window):
         rbtMuller.connect("toggled",self.on_xeneroToggled,modeloFiltrado)
         rbtOutros.connect("toggled",self.on_xeneroToggled,modeloFiltrado)
 
+
+        scale = Gtk.Scale.new_with_range(orientation= Gtk.Orientation.HORIZONTAL, min= 1, max=135, step=1)
+        caixaH2 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL,spacing=6)
+        rbtMayor = Gtk.RadioButton(label = "Mayor de")
+        rbtMenor = Gtk.RadioButton.new_with_label_from_widget(rbtMayor, label="Menor de")
+        caixaH2.pack_start(rbtMayor,False,False,2)
+        caixaH2.pack_start(rbtMenor,False,False,2)
+        scale.connect("value-changed",self.on_scaleEdad_changed,modeloFiltrado)
+        rbtMayor.connect("toggled",self.on_rbtEdad_toggled,scale,modeloFiltrado)
+        rbtMenor.connect("toggled",self.on_rbtEdad_toggled,scale,modeloFiltrado)
+
+
+
         caixav.pack_start(caixaH,True,True,0)
+        caixav.pack_start(scale,True,True,5)
+        caixav.pack_start(caixaH2,True,True,5)
 
         self.add(caixav)
         self.connect("delete_event",Gtk.main_quit)
