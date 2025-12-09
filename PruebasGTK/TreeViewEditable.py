@@ -47,6 +47,11 @@ class EjemploTree(Gtk.Window):
             else:
                 return modelo[fila][2] < self.filtradoEdad
 
+    def filtros_usuarios(self,modelo,fila,datosUsuario):
+        edad = self.filtro_usuarios_edade(modelo,fila,datosUsuario)
+        xenero = self.filtro_usuarios_xenero(modelo,fila,datosUsuario)
+        return (edad and xenero)
+
 
     def __init__(self):
         super().__init__()
@@ -68,7 +73,8 @@ class EjemploTree(Gtk.Window):
             modelo.append(usuario)
         modeloFiltrado = modelo.filter_new()
         #modeloFiltrado.set_visible_func(self.filtro_usuarios_xenero)
-        modeloFiltrado.set_visible_func(self.filtro_usuarios_edade)
+        #modeloFiltrado.set_visible_func(self.filtro_usuarios_edade)
+        modeloFiltrado.set_visible_func(self.filtros_usuarios)
 
         trvVista = Gtk.TreeView(model=modeloFiltrado)
 
