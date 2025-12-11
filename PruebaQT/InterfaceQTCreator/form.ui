@@ -25,7 +25,7 @@
    <property name="title">
     <string>Albaran</string>
    </property>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>12</x>
@@ -38,14 +38,7 @@
      <item row="0" column="0">
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>Nombre Cliente</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="lineEdit">
-       <property name="text">
-        <string/>
+        <string>Numero Cliente</string>
        </property>
       </widget>
      </item>
@@ -159,10 +152,13 @@
      <item row="5" column="3">
       <widget class="QLineEdit" name="lineEdit_10"/>
      </item>
+     <item row="0" column="1">
+      <widget class="QComboBox" name="cmbNumeroCliente"/>
+     </item>
     </layout>
    </widget>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -178,7 +174,7 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="btnEngadir">
         <property name="text">
          <string>Engadir</string>
         </property>
@@ -202,7 +198,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>620</x>
