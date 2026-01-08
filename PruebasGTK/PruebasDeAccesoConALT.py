@@ -21,7 +21,6 @@ class FiestraPrincipal(Gtk.Window):
         txtSaudo.connect("activate", self.on_btn_Saudo,txtSaudo,lblSaudo)
         caixaV.pack_start(btnSaudo,False,False,5)
 
-        #TODO Uso de los check box como qt pero en gtk
         self.add(caixaV)
         self.connect("delete-event",Gtk.main_quit)
         self.show_all()
