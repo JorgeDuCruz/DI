@@ -52,7 +52,10 @@ actT = ['Tarde','Traballar','Clases','Clases','Clases','Traballar','Traballar','
 actN = ['Noite','-','Traballar','Traballar','Traballar','-','-','-']
 
 taboa = Table([cab,actM,actT,actN])
-taboa.setStyle([('TEXTCOLOR',(1,-4),(7,-4),colors.red),('TEXTCOLOR',(0,0),(0,3),colors.blue)])
+taboa.setStyle([('TEXTCOLOR',(1,-4),(7,-4),colors.red),
+                ('TEXTCOLOR',(0,0),(0,3),colors.blue),
+                ('BOX',(0,0),(-1,-1),1,colors.green),
+                ('INNERGRID',(1,1),(-1,-1),0.25,colors.black)])
 guion.append(taboa)
 
 
