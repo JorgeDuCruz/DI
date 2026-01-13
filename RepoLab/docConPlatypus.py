@@ -45,19 +45,22 @@ imaxe = Image("equis23x23.jpg",23,23)
 guion.append(imaxe)
 
 
-
+tit = ['Horario','','','','','','','']
 cab = ['','Luns','Martes','Miercoles','Jueves','Viernes','Sabado','Domingo']
 actM = ['Mañán','Clases','Correr','-','-','-','Estudar','Traballar']
 actT = ['Tarde','Traballar','Clases','Clases','Clases','Traballar','Traballar','Ler']
 actN = ['Noite','-','Traballar','Traballar','Traballar','-','-','-']
 
-taboa = Table([cab,actM,actT,actN])
+taboa = Table([tit,cab,actM,actT,actN])
 taboa.setStyle([('TEXTCOLOR',(1,-4),(7,-4),colors.red),
-                ('TEXTCOLOR',(0,0),(0,3),colors.blue),
+                ('TEXTCOLOR',(0,0),(0,-1),colors.blue),
                 ('BOX',(0,0),(-1,-1),1,colors.green),
-                ('INNERGRID',(1,1),(-1,-1),0.25,colors.black),
-                ('LINEBELOW',(1,0),(7,0),0.25,colors.black),
-                ('LINEBEFORE',(1,1),(1,-1),0.25,colors.black)])
+                ('INNERGRID',(1,2),(-1,-1),0.25,colors.black),
+                ('LINEBELOW',(1,1),(7,1),0.25,colors.black),
+                ('LINEBEFORE',(1,2),(1,-1),0.25,colors.black),
+                ('SPAN',(0,0),(-1,0)),
+                ('ALIGN',(0,0),(-1,0),'CENTER'),
+                ('BACKGROUND',(1,-4),(-1,-4),colors.lightgrey)])
 guion.append(taboa)
 
 
