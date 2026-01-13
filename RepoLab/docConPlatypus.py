@@ -42,12 +42,14 @@ guion.append(Spacer(0,30))
 guion.append(paragrafo2)
 
 imaxe = Image("equis23x23.jpg",23,23)
-guion.append(imaxe)
+#guion.append(imaxe)
+
+texto = Paragraph("Libre")
 
 
 tit = ['Horario','','','','','','','']
 cab = ['','Luns','Martes','Miercoles','Jueves','Viernes','Sabado','Domingo']
-actM = ['Mañán','Clases','Correr','-','-','-','Estudar','Traballar']
+actM = ['Mañán','Clases','Correr',[imaxe,texto],'-','-','Estudar','Traballar']
 actT = ['Tarde','Traballar','Clases','Clases','Clases','Traballar','Traballar','Ler']
 actN = ['Noite','-','Traballar','Traballar','Traballar','-','-','-']
 
