@@ -5,8 +5,8 @@ from reportlab.lib import colors
 
 guion = []
 
-tit = ['FACTURA SIMPLIFICADA','','','']
-cab = ['Nombre de tu Empresa','Logo de la Empresa']
+tit = ['','','FACTURA SIMPLIFICADA','']
+cab = ['Nombre de tu Empresa','','Logo de la Empresa','']
 dic = ['Dirección','']
 loc = ['Ciudad y País','']
 NIF = ['CIF/NIF','','Fecha Emisión','DD/MM/AAAA']
@@ -38,13 +38,29 @@ taboa = Table([
     p4,
     p5,
     p6,
+    spc,
     final
 ])
 
-taboa.setStyle([('SPAN',(0,0),(-1,0)),
-                ('ALIGN',(0,0),(-1,0),'RIGHT'),
+taboa.setStyle([('SPAN',(2,0),(-1,0)),
+                ('SPAN',(2,1),(-1,1)),
+                ('ALIGN',(2,0),(-1,1),'RIGHT'),
                 ('TEXTCOLOR',(0,0),(-1,6),colors.darkgreen),
-                ('FONT',(0,0),(-1,6),"Helvetica-Bold"),
+                ('FONT',(0,0),(-1,8),"Helvetica-Bold"),
+                ('SIZE',(0,0),(-1,1),18),
+                ('FONT',(-1,4),(-1,6),"Helvetica"),
+                ('ALIGN',(0,8),(-1,15),'CENTER'),
+                ('ALIGN',(-1,9),(-1,15),'RIGHT'),
+                ('BACKGROUND',(0,8),(-1,8),colors.darkgreen),
+                ('TEXTCOLOR',(0,8),(-1,8),colors.white),
+                ('BACKGROUND',(0,9),(-1,14),colors.lightgreen),
+                ('BACKGROUND',(2,16),(-1,16),colors.darkgreen),
+                ('TEXTCOLOR',(2,16),(-1,16),colors.white),
+                ('INNERGRID', (0,8), (-1, 15), 0.5, colors.white),
+                ('FONT',(2,16),(-1,16),"Helvetica-Bold",12),
+                ('ALIGN',(2,16),(-1,16),"CENTER"),
+                ('TOPPADDING',(1,1),(-1,1),20),
+                ('TOPPADDING',(0,2),(-1,2),20),
                 ])
 guion.append(taboa)
 
