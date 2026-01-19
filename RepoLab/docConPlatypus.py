@@ -1,3 +1,6 @@
+from reportlab.graphics.charts.barcharts import VerticalBarChart
+from reportlab.graphics.shapes import Drawing
+from reportlab.graphics.charts.textlabels import Label
 from reportlab.platypus import Paragraph, Table
 from reportlab.platypus import Image
 from reportlab.platypus import SimpleDocTemplate
@@ -66,6 +69,43 @@ taboa.setStyle([('TEXTCOLOR',(1,-4),(7,-4),colors.red),
 guion.append(taboa)
 
 
+d = Drawing(400,200)
+titulo = Label()
+titulo.setOrigin(200,190)
+titulo.setText("Porcentaxe contratados/aprobados")
+d.add(titulo)
+
+lendaLateral = Label()
+lendaLateral.setOrigin(10,100)
+lendaLateral.angle = 90
+lendaLateral.setText("Porcentaxe")
+d.add(lendaLateral)
+
+datos = [(13.3,8,14.3,25,33.3,37.5,21.1,28.6,45.5,38.1,54.6,36.0,42.3),
+         (67,69,68,81,92,90,87,82,77,79,59,69,61)]
+lendaDatos = ['11/12','12/13','13/14','14/15','15/16','16/17','17/18','18/19','19/20','20/21','21/22','22/23','23/24','24/25']
+
+graficoBarras = VerticalBarChart()
+
+graficoBarras.x = 50
+graficoBarras.y = 50
+graficoBarras.height = 125
+graficoBarras.width = 300
+graficoBarras.data = datos
+graficoBarras.valueAxis.valueMin = 0
+graficoBarras.valueAxis.valueMax = 100
+graficoBarras.valueAxis.valueStep = 10
+graficoBarras.categoryAxis.labels.boxAnchor = 'ne'
+graficoBarras.categoryAxis.labels.dx = 8
+graficoBarras.categoryAxis.labels.dy = -10
+graficoBarras.categoryAxis.labels.angle = 30
+graficoBarras.categoryAxis.categoryNames = lendaDatos
+graficoBarras.groupSpacing = 10
+graficoBarras.barSpacing = 5
+
+d.add(graficoBarras)
+guion.append(Spacer(0,20))
+guion.append(d)
 
 doc = SimpleDocTemplate("exemploPlatypus.pdf",pagesize=A4,showBoundary = 1)
 
