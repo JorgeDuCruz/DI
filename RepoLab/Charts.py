@@ -1,8 +1,10 @@
 from reportlab.graphics.charts.barcharts import VerticalBarChart
 from reportlab.graphics.charts.linecharts import HorizontalLineChart
+from reportlab.graphics.charts.piecharts import Pie
 from reportlab.graphics.shapes import Drawing
 from reportlab.graphics.charts.textlabels import Label
 from reportlab.graphics.widgets.markers import makeMarker
+from reportlab.lib import colors
 from reportlab.platypus import SimpleDocTemplate, Spacer
 from reportlab.lib.pagesizes import A4
 
@@ -60,5 +62,23 @@ graficoLinhas.lines[0].symbol = makeMarker('FilledCircle')
 graficoLinhas.lines[1].strokeWidth = 1.5
 d2.add(graficoLinhas)
 
+
+d3 = Drawing(400,200)
+graficoTarta = Pie()
+graficoTarta.x = 65
+graficoTarta.y = 15
+graficoTarta.height = 170
+graficoTarta.width = 170
+graficoTarta.data = [10,20,30,40,50]
+graficoTarta.labels = ['Oppo','Pixel','Galaxy','Iphone','Xiaomi']
+graficoTarta.slices.strokeWidth = 0.5
+graficoTarta.slices[3].popout = 10
+graficoTarta.slices[3].strokeDashArray = [5,5] #[longitud de linea, espacio entre lines]
+graficoTarta.slices[3].labelRadius = 1.75
+graficoTarta.slices[3].fontColor = colors.red
+graficoTarta.sideLabels = 1
+
+d3.add(graficoTarta)
+
 doc = SimpleDocTemplate("ExemploGrafico.pdf",pagesize=A4)
-doc.build([d,Spacer(20,20),d2])
+doc.build([d,Spacer(20,20),d2,Spacer(20,20),d3])
