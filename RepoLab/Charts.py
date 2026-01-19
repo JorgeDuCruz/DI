@@ -1,4 +1,5 @@
 from reportlab.graphics.charts.barcharts import VerticalBarChart
+from reportlab.graphics.charts.legends import Legend
 from reportlab.graphics.charts.linecharts import HorizontalLineChart
 from reportlab.graphics.charts.piecharts import Pie
 from reportlab.graphics.shapes import Drawing
@@ -82,8 +83,27 @@ colores = [colors.blue,colors.darkgreen,colors.pink,colors.red,colors.peru]
 for i, color in enumerate(colores):
     graficoTarta.slices[i].fillColor = color
 
+lenda = Legend()
+lenda.x = 370
+lenda.y = 5
+lenda.fontName = 'Helvetica'
+lenda.fontSize = 7
+lenda.boxAnchor = 'n'
+lenda.columnMaximum = 10
+lenda.strokeWidth = 1
+lenda.strokeColor = colors.black
+lenda.deltax = 75
+lenda.deltay = 10
+lenda.autoXPadding = 5
+lenda.yGap = 0
+lenda.dxTextSpace = 5
+lenda.alignment = 'right'
+lenda.dividerLines = 1|2|4 # Cosa muy rara del binario
+lenda.dividerOffsY = 5.5
 
+d3.add(lenda)
 d3.add(graficoTarta)
+
 
 doc = SimpleDocTemplate("ExemploGrafico.pdf",pagesize=A4)
 doc.build([d,Spacer(20,20),d2,Spacer(20,20),d3])
