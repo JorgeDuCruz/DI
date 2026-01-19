@@ -78,6 +78,11 @@ graficoTarta.slices[3].labelRadius = 1.75
 graficoTarta.slices[3].fontColor = colors.red
 graficoTarta.sideLabels = 1
 
+colores = [colors.blue,colors.darkgreen,colors.pink,colors.red,colors.peru]
+for i, color in enumerate(colores):
+    graficoTarta.slices[i].fillColor = color
+
+
 d3.add(graficoTarta)
 
 doc = SimpleDocTemplate("ExemploGrafico.pdf",pagesize=A4)
