@@ -84,6 +84,9 @@ for i, color in enumerate(colores):
     graficoTarta.slices[i].fillColor = color
 
 lenda = Legend()
+lenda.colorNamePairs = [(graficoTarta.slices[i].fillColor,
+                         (graficoTarta.labels[i][0:20],'%0.2f' %graficoTarta.data[i]))
+                        for i in range(len(graficoTarta.data))]
 lenda.x = 370
 lenda.y = 5
 lenda.fontName = 'Helvetica'
@@ -100,6 +103,7 @@ lenda.dxTextSpace = 5
 lenda.alignment = 'right'
 lenda.dividerLines = 1|2|4 # Cosa muy rara del binario
 lenda.dividerOffsY = 5.5
+lenda.subCols.rpad = 10
 
 d3.add(lenda)
 d3.add(graficoTarta)
