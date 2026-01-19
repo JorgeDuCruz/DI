@@ -17,7 +17,7 @@ graficoBarras.height = 125
 graficoBarras.width = 300
 graficoBarras.data = datos
 graficoBarras.valueAxis.valueMin = 0
-graficoBarras.valueAxis.valueMax = 70
+graficoBarras.valueAxis.valueMax = 100
 graficoBarras.valueAxis.valueStep = 10
 graficoBarras.categoryAxis.labels.boxAnchor = 'ne'
 graficoBarras.categoryAxis.labels.dx = 8
@@ -25,6 +25,7 @@ graficoBarras.categoryAxis.labels.dy = -10
 graficoBarras.categoryAxis.labels.angle = 30
 graficoBarras.categoryAxis.categoryNames = lendaDatos
 graficoBarras.groupSpacing = 10
+graficoBarras.barSpacing = 5
 
 d.add(graficoBarras)
 
