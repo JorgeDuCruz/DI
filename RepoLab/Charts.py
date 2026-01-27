@@ -75,7 +75,7 @@ graficoTarta.labels = ['Oppo','Pixel','Galaxy','Iphone','Xiaomi']
 graficoTarta.slices.strokeWidth = 0.5
 graficoTarta.slices[3].popout = 10
 graficoTarta.slices[3].strokeDashArray = [5,5] #[longitud de linea, espacio entre lines]
-graficoTarta.slices[3].labelRadius = 1.75
+graficoTarta.slices[3].labelRadius = 1
 graficoTarta.slices[3].fontColor = colors.red
 graficoTarta.sideLabels = 1
 
