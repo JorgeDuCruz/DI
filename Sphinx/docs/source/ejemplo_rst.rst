@@ -50,7 +50,7 @@ Para o uso de \ * hai que usar as barras de escape \\. Lo mismo para las comilla
 Termo
   Definición do termo, que ten que estar sangrado
 
-  pode ter varios parrafo
+  pode ter varios paragrafos
 
 Outro Termo
   Podemos escribir outros termos
@@ -101,3 +101,35 @@ Se poden definir `enlaces <https://google.com/>`_ inline
 .. danger::
 
   Uui, miedito!
+
+.. error::
+
+  Trabucaches!
+
+.. important::
+
+  Ares tiene tecnicazas
+
+.. warning::
+
+  No vas a poder viciar, Jaja
+
+.. note::
+
+  Mañana tienes examen y no sabes nada
+
+.. code-block::
+   :caption: un exemplo
+
+     Esta liña precisa catro espazos
+
+.. image:: _static/equis16x216.jpg
+
+Este texto ten notas [#f1]_ para despois aclaralas no remate [#f2]_ do documento
+
+Outro paragrafo en medio
+
+.. rubric:: Notas o pe:
+
+.. [#f1] Son aclaracions sobre o que se esta a describir
+.. [#f2] Sueleb poñerse o fin do texto.
