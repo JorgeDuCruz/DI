@@ -16,3 +16,4 @@ Documentacion de uso de Sphinx, escrito en
    :caption: Contidos:
 
    usc
+   ejemplo_rst
