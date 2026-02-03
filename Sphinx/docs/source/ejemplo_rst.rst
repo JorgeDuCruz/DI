@@ -58,8 +58,16 @@ Outro Termo
 | Podemos definir bloque de texto
 | Para iso usamos o caracter
 
+.. _bloques-de-codigo:
 
-Para codigo no sé
+Bloque de código
+++++++++++++++++
+
+Para codigo::
+
+ bloque de codigo
+ bloque 1
+ bloque2
 
 Taboas
 ******
@@ -117,6 +125,8 @@ Se poden definir `enlaces <https://google.com/>`_ inline
 .. note::
 
   Mañana tienes examen y no sabes nada
+
+Outra forma de definir bloques de código a anterior, mirao en :ref:`bloques-de-codigo`.
 
 .. code-block::
    :caption: un exemplo
