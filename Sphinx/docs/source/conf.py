@@ -7,9 +7,9 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 import sys
 import os
-from pathlib import Path
 
-sys.path.insert(0,os.path.abspath('../..'))
+sys.path.insert(0,os.path.abspath('../../cod'))
+# sphinx-apidoc -o docs/source ./cod comando para generar la docu del código ./cod --> carpeta donde esta el código
 
 project = 'Probas Sphinx'
 copyright = '2026, Jorge'
