@@ -6,9 +6,10 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 import sys
+import os
 from pathlib import Path
 
-sys.path.insert(0,str(Path('..','src').resolve()))
+sys.path.insert(0,os.path.abspath('../..'))
 
 project = 'Probas Sphinx'
 copyright = '2026, Jorge'
