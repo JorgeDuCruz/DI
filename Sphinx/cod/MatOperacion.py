@@ -8,3 +8,5 @@ def suma(a,b):
     :param b: Segundo sumando
     :return: resultado da suma a+b
     """
+
+    return a+b
