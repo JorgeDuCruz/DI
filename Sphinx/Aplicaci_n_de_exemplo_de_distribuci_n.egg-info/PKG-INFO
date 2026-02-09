@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: Aplicaci-n-de-exemplo-de-distribuci-n
+Version: 0.1
+Summary: Exemplo de uso de distutils
+Author: Jorge
+Author-email: jdurancruz@danielcastelao.org
+License: GLP
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: license
+Dynamic: summary
+
+Descripción longa do proxecto, con explicación en
+                          varias liñas formando parte da documentación
+                          do paquete distribuible.

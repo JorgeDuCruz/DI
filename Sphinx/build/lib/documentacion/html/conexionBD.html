@@ -1,0 +1,206 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>conexionBD module &mdash; documentación de Probas Sphinx - 0.1</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=9c9b61ad"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/translations.js?v=f85f4cfb"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="prev" title="Persoa module" href="Persoa.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Probas Sphinx
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contidos:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usc.html">Modo de uso</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejemplo_rst.html">Introducción a restructure text</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cod</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="MatOperacion.html">MatOperacion module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Persoa.html">Persoa module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">conexionBD module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#conexionBD.ConexionBD"><code class="docutils literal notranslate"><span class="pre">ConexionBD</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#conexionBD.ConexionBD.actualizaRexistro"><code class="docutils literal notranslate"><span class="pre">ConexionBD.actualizaRexistro()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#conexionBD.ConexionBD.borraRexistro"><code class="docutils literal notranslate"><span class="pre">ConexionBD.borraRexistro()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#conexionBD.ConexionBD.conectaBD"><code class="docutils literal notranslate"><span class="pre">ConexionBD.conectaBD()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#conexionBD.ConexionBD.consultaConParametros"><code class="docutils literal notranslate"><span class="pre">ConexionBD.consultaConParametros()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#conexionBD.ConexionBD.consultaSenParametros"><code class="docutils literal notranslate"><span class="pre">ConexionBD.consultaSenParametros()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#conexionBD.ConexionBD.creaCursor"><code class="docutils literal notranslate"><span class="pre">ConexionBD.creaCursor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#conexionBD.ConexionBD.engadeRexistro"><code class="docutils literal notranslate"><span class="pre">ConexionBD.engadeRexistro()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#conexionBD.ConexionBD.pechaBD"><code class="docutils literal notranslate"><span class="pre">ConexionBD.pechaBD()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Probas Sphinx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cod</a></li>
+      <li class="breadcrumb-item active">conexionBD module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/conexionBD.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-conexionBD">
+<span id="conexionbd-module"></span><h1>conexionBD module<a class="headerlink" href="#module-conexionBD" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="conexionBD.ConexionBD">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">conexionBD.</span></span><span class="sig-name descname"><span class="pre">ConexionBD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rutaBd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conexionBD.ConexionBD" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Clase para realizar a conexión a una base de datos SQlite.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="conexionBD.ConexionBD.actualizaRexistro">
+<span class="sig-name descname"><span class="pre">actualizaRexistro</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">updateSQL</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">parametros</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conexionBD.ConexionBD.actualizaRexistro" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexionBD.ConexionBD.borraRexistro">
+<span class="sig-name descname"><span class="pre">borraRexistro</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">borraSQL</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">parametros</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conexionBD.ConexionBD.borraRexistro" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexionBD.ConexionBD.conectaBD">
+<span class="sig-name descname"><span class="pre">conectaBD</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conexionBD.ConexionBD.conectaBD" title="Link to this definition"></a></dt>
+<dd><p>Método que crea a conexión da base de datos.</p>
+<p>Para realizar a conexión precisa da ruta onde está a base de datos que selle pasa no método __init__.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexionBD.ConexionBD.consultaConParametros">
+<span class="sig-name descname"><span class="pre">consultaConParametros</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">consultaSQL</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">parametros</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conexionBD.ConexionBD.consultaConParametros" title="Link to this definition"></a></dt>
+<dd><p>Retorna unha lista cos rexistros dunha consulta realizada pasandolle os parámetros.</p>
+<p>A consulta ten que estar definida con “?” na clausula where de SQL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>consultaSQL</strong> – Código da consulta sql a executar</p></li>
+<li><p><strong>*parametros</strong> – <p>Parámetros para introducir na consulta</p>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>listaConsulta</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexionBD.ConexionBD.consultaSenParametros">
+<span class="sig-name descname"><span class="pre">consultaSenParametros</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">consultaSQL</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conexionBD.ConexionBD.consultaSenParametros" title="Link to this definition"></a></dt>
+<dd><p>Retorna unha lista cos rexistros dunha consulta realizada sen pasarlle parámetros.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>consultaSQL</strong> – Código da consulta sql a executar</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>listaConsulta</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexionBD.ConexionBD.creaCursor">
+<span class="sig-name descname"><span class="pre">creaCursor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conexionBD.ConexionBD.creaCursor" title="Link to this definition"></a></dt>
+<dd><p>Método que crea o cursor da base de datos.</p>
+<p>Para realizar o cursor precísase previamente da execución do método conectaBD, que crea a conexión a base de 
+datos na ruta onde está padada o método __init__.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexionBD.ConexionBD.engadeRexistro">
+<span class="sig-name descname"><span class="pre">engadeRexistro</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">insertSQL</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">parametros</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conexionBD.ConexionBD.engadeRexistro" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="conexionBD.ConexionBD.pechaBD">
+<span class="sig-name descname"><span class="pre">pechaBD</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conexionBD.ConexionBD.pechaBD" title="Link to this definition"></a></dt>
+<dd><p>Pecha o cursor e a conexión da base de datos si esta existe.</p>
+<p>Comproba si a conexión e o cursor existe e si é asi a pecha.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="Persoa.html" class="btn btn-neutral float-left" title="Persoa module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2026, Jorge.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
