@@ -1,0 +1,19 @@
+[project]
+name = "paquete_exemplo_JorgeDC"
+version = "0.0.1"
+authors = [
+    {name = "Jorge",email = "jdurancruz@danielcastelao.org"},
+    {name = "outro", email = "outro@gamil.com"}
+]
+description = "Un exemplo de empaquetado"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python ::3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICENSE"]
+
+[project.urls]
+Homepage = "https://github.com/"
