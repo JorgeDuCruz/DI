@@ -17,3 +17,6 @@ license-files = ["LICENSE"]
 
 [project.urls]
 Homepage = "https://github.com/JorgeDuCruz/DI/tree/main/Paquetado/fontes"
+
+[project.scripts]
+lanzador = "fontes.paquete_exemplo_JorgeDC.main:main"
